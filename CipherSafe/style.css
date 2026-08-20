@@ -1,0 +1,1722 @@
+/* =========================================
+   CIPHERSAFE
+   FUTURISTIC MONOCHROME DESIGN
+   ========================================= */
+
+
+/* RESET */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #111;
+
+    background: #f3f4f6;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND
+   ========================================= */
+
+.grid-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -5;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0, 0, 0, 0.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+}
+
+
+/* soft central glow */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    top: 100px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.95),
+            rgba(255,255,255,0)
+        );
+
+    z-index: -4;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   WIRE FRAME GLOBE
+   ========================================= */
+
+.globe {
+
+    position: fixed;
+
+    width: 560px;
+    height: 560px;
+
+    left: -270px;
+    top: 230px;
+
+    border: 1px solid rgba(0,0,0,0.18);
+
+    border-radius: 50%;
+
+    z-index: -3;
+
+    opacity: 0.75;
+}
+
+
+/* horizontal globe lines */
+
+.globe::before,
+.globe::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 12% 0;
+
+    border: 1px solid rgba(0,0,0,0.13);
+
+    border-radius: 50%;
+}
+
+
+.globe::after {
+
+    inset: 28% 0;
+
+    border-color: rgba(0,0,0,0.10);
+}
+
+
+/* vertical globe lines */
+
+.globe-line {
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 220px;
+
+    transform: translateX(-50%);
+
+    border-left: 1px solid rgba(0,0,0,0.11);
+
+    border-right: 1px solid rgba(0,0,0,0.11);
+
+    border-radius: 50%;
+}
+
+
+.line-1 {
+    width: 100px;
+}
+
+.line-2 {
+    width: 300px;
+}
+
+.line-3 {
+    width: 420px;
+}
+
+.line-4 {
+    width: 500px;
+}
+
+
+/* =========================================
+   CIRCUIT LINES
+   ========================================= */
+
+.circuit {
+
+    position: fixed;
+
+    z-index: -2;
+
+    opacity: 0.5;
+}
+
+
+.circuit-one {
+
+    right: -30px;
+    top: 220px;
+
+    width: 350px;
+    height: 220px;
+}
+
+
+.circuit-two {
+
+    right: 100px;
+    bottom: 80px;
+
+    width: 280px;
+    height: 150px;
+
+    transform: rotate(180deg);
+}
+
+
+.circuit::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 1px;
+
+    background: #9b9da2;
+
+    top: 50px;
+    left: 50px;
+
+    box-shadow:
+        80px 50px 0 #9b9da2,
+        140px 100px 0 #9b9da2;
+}
+
+
+.circuit::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    border-top: 1px solid #9b9da2;
+    border-right: 1px solid #9b9da2;
+
+    top: 50px;
+    left: 120px;
+}
+
+
+.circuit span {
+
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border: 1px solid #555;
+
+    background: #f3f4f6;
+
+    border-radius: 50%;
+}
+
+
+.circuit span:nth-child(1) {
+    top: 46px;
+    left: 46px;
+}
+
+
+.circuit span:nth-child(2) {
+    top: 96px;
+    left: 196px;
+}
+
+
+.circuit span:nth-child(3) {
+    top: 146px;
+    left: 276px;
+}
+
+
+/* =========================================
+   SPARKS
+   ========================================= */
+
+.spark {
+
+    position: fixed;
+
+    color: #111;
+
+    z-index: -1;
+
+    font-size: 30px;
+
+    animation: floatSpark 4s ease-in-out infinite;
+}
+
+
+.spark-one {
+    top: 170px;
+    left: 70px;
+}
+
+
+.spark-two {
+    top: 120px;
+    right: 100px;
+    font-size: 20px;
+}
+
+
+.spark-three {
+    bottom: 160px;
+    right: 80px;
+    font-size: 38px;
+}
+
+
+.spark-four {
+    bottom: 90px;
+    left: 180px;
+    font-size: 18px;
+}
+
+
+@keyframes floatSpark {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(10deg);
+    }
+}
+
+
+/* =========================================
+   WEBSITE WRAPPER
+   ========================================= */
+
+.website {
+
+    width: 92%;
+
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+
+/* =========================================
+   TOP BAR
+   ========================================= */
+
+.top-bar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 32px 0;
+
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.brand-small {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+.brand-dot {
+
+    width: 7px;
+    height: 7px;
+
+    background: #111;
+
+    border-radius: 50%;
+}
+
+
+.top-security {
+
+    color: #666;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+
+    text-align: center;
+
+    padding: 55px 20px 45px;
+}
+
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+
+    color: #555;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(55px, 9vw, 120px);
+
+    line-height: 0.9;
+
+    font-weight: 900;
+
+    letter-spacing: -7px;
+}
+
+
+.tagline {
+
+    margin-top: 24px;
+
+    color: #777b83;
+
+    font-size: 16px;
+
+    letter-spacing: 6px;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+.main-content {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(500px, 1fr)
+        330px;
+
+    gap: 35px;
+
+    align-items: center;
+
+    max-width: 1050px;
+
+    margin: auto;
+}
+
+
+/* =========================================
+   VAULT PANEL
+   ========================================= */
+
+.vault-panel {
+
+    position: relative;
+
+    background:
+        rgba(255,255,255,0.94);
+
+    border: 1px solid #cfd1d5;
+
+    border-radius: 22px;
+
+    padding: 55px 70px 45px;
+
+    text-align: center;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.08);
+
+    overflow: hidden;
+}
+
+
+/* security label */
+
+.panel-label {
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%, -1px);
+
+    background: #111;
+
+    color: white;
+
+    padding: 10px 28px;
+
+    border-radius: 0 0 15px 15px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* corners */
+
+.corner {
+
+    position: absolute;
+
+    width: 24px;
+    height: 24px;
+
+    border-color: #111;
+
+    border-style: solid;
+}
+
+
+.top-left {
+
+    top: 28px;
+    left: 28px;
+
+    border-width: 2px 0 0 2px;
+}
+
+
+.top-right {
+
+    top: 28px;
+    right: 28px;
+
+    border-width: 2px 2px 0 0;
+}
+
+
+.bottom-left {
+
+    bottom: 28px;
+    left: 28px;
+
+    border-width: 0 0 2px 2px;
+}
+
+
+.bottom-right {
+
+    bottom: 28px;
+    right: 28px;
+
+    border-width: 0 2px 2px 0;
+}
+
+
+/* =========================================
+   LOCK
+   ========================================= */
+
+.lock-container {
+
+    width: 150px;
+    height: 150px;
+
+    margin: 25px auto 25px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.lock-ring {
+
+    position: absolute;
+
+    border: 1px solid #d4d5d8;
+
+    border-radius: 50%;
+}
+
+
+.ring-one {
+
+    width: 145px;
+    height: 145px;
+}
+
+
+.ring-two {
+
+    width: 115px;
+    height: 115px;
+}
+
+
+.ring-three {
+
+    width: 85px;
+    height: 85px;
+}
+
+
+.lock {
+
+    position: relative;
+
+    width: 55px;
+    height: 60px;
+}
+
+
+.lock-shackle {
+
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    left: 12px;
+    top: -16px;
+
+    border: 5px solid #111;
+
+    border-bottom: 0;
+
+    border-radius: 18px 18px 0 0;
+}
+
+
+.lock-body {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 55px;
+    height: 43px;
+
+    background: #111;
+
+    border-radius: 8px;
+}
+
+
+.keyhole {
+
+    position: absolute;
+
+    width: 9px;
+    height: 15px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    left: 23px;
+    top: 12px;
+}
+
+
+/* =========================================
+   LOGIN TEXT
+   ========================================= */
+
+.vault-panel h2 {
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+}
+
+
+.vault-panel h2 strong {
+
+    font-weight: 900;
+}
+
+
+.login-description {
+
+    margin: 12px 0 25px;
+
+    color: #70737a;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   PASSWORD INPUT
+   ========================================= */
+
+.input-container {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    height: 55px;
+
+    border: 1px solid #bfc1c6;
+
+    border-radius: 9px;
+
+    background: #fafafa;
+
+    padding: 0 15px;
+
+    transition: 0.2s;
+}
+
+
+.input-container:focus-within {
+
+    border-color: #111;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px rgba(0,0,0,0.05);
+}
+
+
+.input-icon {
+
+    color: #777;
+
+    font-size: 15px;
+}
+
+
+#masterPassword {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 15px;
+}
+
+
+.show-password {
+
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   UNLOCK BUTTON
+   ========================================= */
+
+.unlock-button {
+
+    width: 100%;
+
+    height: 55px;
+
+    margin-top: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    transition: 0.25s;
+}
+
+
+.unlock-button .arrow {
+
+    font-size: 22px;
+
+    transition: 0.25s;
+}
+
+
+.unlock-button:hover {
+
+    background: #292929;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.16);
+}
+
+
+.unlock-button:hover .arrow {
+
+    transform: translateX(6px);
+}
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+#message {
+
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   PANEL FOOTER
+   ========================================= */
+
+.panel-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+.panel-footer span {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: #d4d5d8;
+}
+
+
+.panel-footer b {
+
+    font-size: 12px;
+}
+
+
+.security-caption {
+
+    margin-top: 10px;
+
+    color: #8a8c91;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   SECURITY PANEL
+   ========================================= */
+
+.security-panel {
+
+    position: relative;
+
+    padding: 32px 25px;
+
+    background: rgba(255,255,255,0.65);
+
+    border: 1px solid #d1d3d7;
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(8px);
+}
+
+
+.security-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+
+.security-icon {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #aaa;
+
+    border-radius: 50%;
+}
+
+
+.security-title h3 {
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+.security-title p {
+
+    margin-top: 5px;
+
+    color: #888;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* security items */
+
+.security-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+.security-circle {
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #c4c6ca;
+
+    border-radius: 50%;
+
+    font-weight: bold;
+}
+
+
+.security-item h4 {
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+.security-item p {
+
+    margin-top: 5px;
+
+    color: #85878d;
+
+    font-size: 11px;
+}
+
+
+.security-line {
+
+    height: 1px;
+
+    width: 50%;
+
+    margin: 25px auto;
+
+    background: #111;
+}
+
+
+.security-status {
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #666;
+}
+
+
+.status-dot {
+
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 7px;
+
+    background: #111;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   WORKFLOW
+   ========================================= */
+
+.workflow {
+
+    max-width: 1050px;
+
+    margin: 45px auto 0;
+
+    padding: 20px 0;
+
+    border-top: 1px solid #d1d3d6;
+
+    border-bottom: 1px solid #d1d3d6;
+}
+
+
+.workflow-title {
+
+    text-align: center;
+
+    margin-bottom: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+}
+
+
+.workflow-items {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+}
+
+
+.workflow-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    font-weight: bold;
+}
+
+
+.workflow-item span {
+
+    color: #999;
+
+    font-size: 9px;
+}
+
+
+.workflow-arrow {
+
+    color: #999;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 28px 0;
+
+    color: #777;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .main-content {
+
+        grid-template-columns: 1fr;
+    }
+
+    .security-panel {
+
+        max-width: 550px;
+
+        margin: auto;
+    }
+
+    .main-content {
+
+        max-width: 650px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .website {
+
+        width: 90%;
+    }
+
+    .top-security {
+
+        display: none;
+    }
+
+    .hero {
+
+        padding-top: 40px;
+    }
+
+    .hero h1 {
+
+        letter-spacing: -4px;
+    }
+
+    .tagline {
+
+        font-size: 11px;
+
+        letter-spacing: 3px;
+    }
+
+    .vault-panel {
+
+        padding: 55px 25px 35px;
+    }
+
+    .workflow-items {
+
+        flex-wrap: wrap;
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        text-align: center;
+    }
+
+    .globe {
+
+        opacity: 0.3;
+    }
+
+    .circuit {
+
+        opacity: 0.2;
+    }
+}
+/* =========================================
+   CIPHERSAFE SECURE VAULT
+   ========================================= */
+
+.vault-dashboard {
+    display: none;
+    width: 92%;
+    max-width: 1100px;
+    margin: 70px auto 100px;
+}
+
+
+/* VAULT HEADER */
+
+.vault-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+
+    padding-bottom: 25px;
+    border-bottom: 1px solid #d1d3d6;
+}
+
+.vault-eyebrow {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.vault-header h2 {
+    font-size: 42px;
+    letter-spacing: -2px;
+    font-weight: 900;
+}
+
+.vault-header p:last-child {
+    margin-top: 8px;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* LOCK VAULT */
+
+.lock-button {
+    background: #111;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 14px 20px;
+
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.lock-button:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+
+/* SEARCH AREA */
+
+.vault-actions {
+    display: flex;
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+.search-box {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    height: 52px;
+
+    padding: 0 16px;
+
+    background: rgba(255,255,255,0.9);
+
+    border: 1px solid #cfd1d5;
+
+    border-radius: 9px;
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 14px;
+}
+
+
+.add-button {
+    padding: 0 24px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #111;
+    color: white;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.add-button:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+
+/* EMPTY VAULT */
+
+.credential-list:empty::before {
+    content: "YOUR VAULT IS EMPTY";
+    display: block;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+
+/* CREDENTIAL GRID */
+
+.credential-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+/* CREDENTIAL CARD */
+
+.credential-card {
+    background: rgba(255,255,255,0.92);
+
+    border: 1px solid #d1d3d7;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.05);
+
+    transition: 0.25s;
+}
+
+.credential-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.09);
+}
+
+
+.credential-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.website-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.credential-number {
+    color: #999;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+.credential-info {
+    margin-top: 20px;
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 2;
+}
+
+
+.password-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.password-value {
+    letter-spacing: 3px;
+    color: #111;
+}
+
+
+.card-actions {
+    display: flex;
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+
+.card-actions button {
+    flex: 1;
+
+    padding: 9px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    background: white;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+.card-actions button:hover {
+    background: #111;
+    color: white;
+}
+
+
+/* =========================================
+   ADD CREDENTIAL FORM
+   ========================================= */
+
+.credential-form {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 30px;
+
+    background: rgba(255,255,255,0.96);
+
+    border: 1px solid #cfd1d5;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.07);
+}
+
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.form-header h3 {
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+
+.form-header button {
+    border: none;
+    background: transparent;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+.credential-form input {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    font-size: 13px;
+}
+
+
+.credential-form input:focus {
+    border-color: #111;
+}
+
+
+.save-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background: #333;
+}
+
+
+/* =========================================
+   VAULT SECURITY STRIP
+   ========================================= */
+
+.vault-security {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 35px;
+
+    border-top: 1px solid #d1d3d6;
+
+    border-bottom: 1px solid #d1d3d6;
+
+    background: rgba(255,255,255,0.45);
+}
+
+
+.vault-security div {
+    padding: 22px;
+
+    text-align: center;
+
+    border-right: 1px solid #d1d3d6;
+}
+
+
+.vault-security div:last-child {
+    border-right: none;
+}
+
+
+.vault-security strong {
+    display: block;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.vault-security span {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #888;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   VAULT RESPONSIVE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .vault-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .vault-actions {
+        flex-direction: column;
+    }
+
+    .credential-list {
+        grid-template-columns: 1fr;
+    }
+
+    .vault-security {
+        grid-template-columns: 1fr;
+    }
+
+    .vault-security div {
+        border-right: none;
+        border-bottom: 1px solid #d1d3d6;
+    }
+
+}
